@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "Yetki";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+@if (ViewData["yetki"] != null)
+{
+    <div class="alert-danger"><i class="glyphicon glyphicon-alert"></i> @ViewData["yetki"] </div>
+}
+

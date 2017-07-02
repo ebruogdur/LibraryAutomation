@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "Emanet";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+<h2>Emanet</h2>
+
+@model List<LibraryAutomation.Models.LoadnedVM>
+<div class="panel panel-default">
+    <div class="panel panel-heading">
+      
+      
+    </div>
+    <div class="panel panel-body">
+      
+      
+        @if (Model.Count <= 0)
+        {
+            <div class="alert-danger"><i class="glyphicon glyphicon-alert"></i> Kayıtlı emanet kitap yoktur.</div>
+        }
+        else
+        {
+
+            
+        <table class="table table-bordered">
+
+            <tr>
+                <td>Emanetler</td>
+                
+
+            </tr>
+
+            <tr>
+               <td>öğrenci</td>
+                <td>Kitap</td>
+                <td>ısbn</td>
+                <td>alış tarihi</td>
+                <td>veriş tarihi</td>
+
+
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.StudentName</td>
+                    <td>@item.BookName</td>
+                    <td>@item._ISBN</td>
+                    <td>@item.LoadnedStartDate</td>
+                    <td>@item.loadnedEndDate</td>
+
+
+                    <td>
+                       
+                     
+                  
+                    <a href="@Url.Action("Iade", "Book", new { id = item.BookID, sid=item.StudentID, oid=item.ID})" class=" glyphicon glyphicon-remove-">iade</a>
+                 
+
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+        }
+
+        <br />
+
+       
+    </div>
+
+</div>

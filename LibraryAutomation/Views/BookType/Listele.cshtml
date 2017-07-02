@@ -1,0 +1,52 @@
+﻿
+@model List<LibraryAutomation.Models.Book_BookTypeVM>
+@{
+    ViewBag.Title = "Listele";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+<div class="panel panel-default">
+    <div class="panel panel-heading">
+     <td>Bu türdeki Kitaplar</td>
+    </div>
+
+   
+    <div class="panel panel-body">
+
+
+            <table class="table table-bordered table-striped btn">
+                <tr>
+                    
+                    <td>kitap adı</td>
+                    <td>yazarı</td>
+                </tr>
+
+                <tr>
+                 
+                   
+
+
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                     
+                       
+                        <td>@item.BookName</td>
+                        <td>@item.BookAuthor</td>
+
+                        
+                    </tr>
+
+                }
+            </table>
+
+        
+
+        <br />
+
+     
+    </div>
+
+</div>
+

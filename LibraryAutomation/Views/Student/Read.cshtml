@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Read";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+@model List<LibraryAutomation.Models.LoadnedVM>
+<div class="panel panel-default">
+    <div class="panel panel-heading">
+        Öğrencinin okuduğu kitaplar
+    </div>
+
+    <div class="panel panel-body">
+            @if (Model.Count == 0)
+            {
+                <div class="alert alert-danger"><i class="glyphicon glyphicon-alert"></i> ogrenci kitap okumamıştır.</div>
+            }
+
+         
+            else
+            {
+
+            <table class="table table-bordered table-striped btn">
+
+                
+                <tr>
+                    <td>kitap adı</td>
+                    <td>ISBN </td>
+                   
+                    <td>aldıgı tarih</td>
+                    <td>verdiği tarih</td>
+                   
+         
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.BookName</td>
+                        <td>@item._ISBN</td>
+                        
+                        <td>@item.LoadnedStartDate</td>
+                        <td>@item.loadnedEndDate</td>
+                      
+                
+                    </tr>
+                }
+
+            </table>
+            }
+
+
+        <br />
+
+    
+    </div>
+
+</div>

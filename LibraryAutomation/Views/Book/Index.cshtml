@@ -1,0 +1,88 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+@model List<LibraryAutomation.Models.BookVM>
+<div class="panel panel-default">
+    <div class="panel panel-heading">
+        Kitap listesi
+    </div>
+
+    @using (Html.BeginForm("Index","Book",FormMethod.Get))
+    {
+        <p>
+         
+            Arama seçenekleri: @Html.RadioButton("option", "Name") <text>kitap ismi</text> @Html.RadioButton("option", "Author")  <text> Yazar </text>
+            @Html.TextBox("ss")
+            <input type="submit" class="btn btn-success" value="Ara" />
+        </p>
+    }
+    <div class="panel panel-body">
+
+
+        @if (Model.Count <= 0)
+        {
+            <div class="alert-danger"><i class="glyphicon glyphicon-alert"></i> Kayıtlı hiç bir kitap yoktur.</div>
+        }
+        else
+        {
+
+            <table class="table table-bordered table-striped btn">
+                <tr>
+                    <td>Kitaplar</td>
+                </tr>
+               
+                <tr>
+                    <td>adı</td>
+                    <td>yazarı</td>
+                    <td>ısbn</td>
+                    <td>durum</td>
+                    <td>sayfası</td>
+                    <td>adet</td>
+                    <td>işlemler</td>
+
+
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.Author</td>
+                        <td>@item.ISBN</td>
+                        @if (item.IsActive == true)
+                        {
+                            <td>rafta</td>
+                        }
+                        else
+                        {
+                            <td>rafta değil</td>
+                        }
+                        <td>@item.Page</td>
+                        <td>@item.Count</td>
+        
+
+                        <td>
+
+                            <a href="@Url.Action("Delete", "Book", new { id = item.Id })" class="glyphicon glyphicon-remove">sil</a>
+                            <a href="@Url.Action("Edit", "Book", new { id = item.Id })" class="glyphicon glyphicon-edit">güncelle</a>
+                            <a href="@Url.Action("AddBookofStudent","Book",new { id=item.Id})" class="glyphicon glyphicon-book">emanet ver</a>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+        }
+
+        <br />
+
+        <a href="/Book/Add" class="btn btn-success"> Yeni Ekle</a>
+    </div>
+
+</div>
+
+
+
+

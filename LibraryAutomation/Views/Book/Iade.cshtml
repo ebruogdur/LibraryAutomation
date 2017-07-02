@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Iade";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+@if (ViewData["Message"] != null)
+{
+    <div class="alert-danger"><i class="glyphicon glyphicon-alert"></i> @ViewData["Message"] </div>
+}
+
+@if (ViewData["Borc"] != null)
+{
+    <div class="alert-danger"><i class="glyphicon glyphicon-alert"></i> @ViewData["Borc"] </div>
+}
+
+@if (ViewData["hata"] != null)
+{
+    <div class="alert-danger"><i class="glyphicon glyphicon-alert"></i> @ViewData["hata"] </div>
+
+}

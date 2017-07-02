@@ -1,0 +1,116 @@
+﻿@model LibraryAutomation.Models.StudentVM
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+<script src="~/Script/js/jquery.js"></script>
+<script src="~/Script/js/jquery.validate.min.js"></script>
+<script src="~/Script/js/jquery.validate.unobtrusive.min.js"></script>
+
+<div class="panel panel-default">
+    <div class="panel panel-heading">Öğrenci Ekleme Ekranı</div>
+    <div class="panel panel-body">
+        @*@if(ViewData["ErrorMessage"] != null)
+        {
+            <div class="alert-danger"><i class="glyphicon glyphicon-alert"></i> @ViewData["ErrorMessage"] </div>
+        }*@
+      
+
+
+        @using (Html.BeginForm("Add", "Student", FormMethod.Post, new { @id = "frmstudent" }))
+        {
+
+
+            <div class="form-group">
+                <p>Öğrenci Numarası</p>
+                @Html.TextBoxFor(model => model.IdentityNumber, new { @class = "form-control" })
+                <span class="field-validation-error text-danger"
+                      data-valmsg-for="IdentityNumber"
+                      data-valmsg-replace="true">@Html.ValidationMessageFor(model => model.IdentityNumber)</span>
+
+            </div>
+
+            <div class="form-group">
+                <p>Öğrenci Adı</p>
+                @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control" })
+                <span class="field-validation-error text-danger"
+                      data-valmsg-for="IdentityNumber"
+                      data-valmsg-replace="true">@Html.ValidationMessageFor(model => model.FirstName)</span>
+
+            </div>
+
+            <div class="form-group">
+                <p>Öğrenci Soyadı</p>
+                @Html.TextBoxFor(model => model.LastName, new { @class = "form-control" })
+                <span class="field-validation-error text-danger"
+                      data-valmsg-for="IdentityNumber"
+                      data-valmsg-replace="true">@Html.ValidationMessageFor(model => model.LastName)</span>
+
+             
+            </div>
+            <div class="form-group">
+                <p>Öğrenci Email</p>
+                @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = "email@example.com" })
+                <span class="field-validation-error text-danger"
+                      data-valmsg-for="IdentityNumber"
+                      data-valmsg-replace="true">@Html.ValidationMessageFor(model => model.Email)</span>
+
+            </div>
+               
+            <div class="form-group">
+                <p>Telefon Numarası</p>
+                @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control", placeholder = "(999)-999-99-99" })
+                <span class="field-validation-error text-danger"
+                      data-valmsg-for="IdentityNumber"
+                      data-valmsg-replace="true">@Html.ValidationMessageFor(model => model.PhoneNumber)</span>
+
+            </div>
+            <div class="form-group">
+                <div style="width:20%">
+                    <p>Doğum Tarihi</p>
+
+                    @Html.TextBoxFor(model => model.BirthDate, new { @class = "form-control datepicker ", @id = "date" })
+                    <span class="field-validation-error text-danger"
+                          data-valmsg-for="IdentityNumber"
+                          data-valmsg-replace="true">@Html.ValidationMessageFor(model => model.BirthDate)</span>
+
+                   
+
+                </div>
+            </div>
+
+
+            <button type="button" id="save" class="btn btn-primary">Ekle</button>
+            <div id="rData"></div>
+
+
+        }
+            </div>
+
+</div>
+<script>
+    $('#save').click(function (e) {
+            e.preventDefault();
+            console.log($("#frmstudent").serialize());
+        $.ajax({
+            url: '/Student/Add',
+            type: 'POST',
+            dataType: 'json',
+            data: $("#frmstudent").serialize()
+
+        })
+        .success(function (data) {
+            if (data.Success == true) {
+               
+                $("#rData").html(data.Message);
+                } else {
+                $('#rData').html(data.Message);
+                }
+
+            })
+        //.error(function () {
+        //    alert("hata");
+        //})
+    });
+
+</script>

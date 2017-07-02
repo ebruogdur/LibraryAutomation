@@ -1,0 +1,52 @@
+﻿@model LibraryAutomation.Models.BookTypeVM
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+<script src="~/Script/js/jquery.js"></script>
+
+<div class="panel panel-default">
+    <div class="panel panel-heading">kitap tipi ekleme ekranı</div>
+    <div class="panel panel-body">
+   @using (Html.BeginForm("Add", "BookType", FormMethod.Post, new { @id = "frmType" }))
+   {
+
+        <div class="form-group">
+            <div style="width:20%">
+                <p>Kitap Türü</p>
+                @Html.TextBoxFor(model => model.TypeName)
+                <span class="field-validation-error text-danger"
+                      data-valmsg-for="IdentityNumber"
+                      data-valmsg-replace="true">@Html.ValidationMessageFor(model => model.TypeName)</span>
+                </div>
+            </div>
+
+            <button type="button" id="ekle" class="btn btn-primary">Ekle</button>
+            <div id="tData"></div>
+    }
+                </div>
+            </div>
+<script>
+    $('#ekle').click(function (e) {
+        e.preventDefault();
+        console.log($("#frmType").serialize());
+        $.ajax({
+            url: '/BookType/Add',
+            type: 'POST',
+            dataType: 'json',
+            data: $("#frmType").serialize()
+
+        })
+        .success(function (data) {
+            if (data.Success == true) {
+                $("#tData").html(data.Message);
+            } else {
+                $('#tData').html(data.Message);
+            }
+
+        })
+      
+    });
+
+</script>

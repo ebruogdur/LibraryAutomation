@@ -1,0 +1,48 @@
+﻿@model LibraryAutomation.Models.BookVM
+@{
+    ViewBag.Title = "Ozellik";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+
+<div class="panel panel-default">
+    <div class="panel panel-heading">kitap özellikleri</div>
+    <div class="panel panel-body">
+
+
+        @using (Html.BeginForm())
+        {
+            <div class="form-group">
+                <p>Adı </p>
+                @Html.TextBoxFor(a => a.Name, new {@readonly=true })
+                
+                </div>
+                <div class="form-group">
+                    <p>sayfası </p>
+                    @Html.TextBoxFor(a => a.Page, new { @readonly = true })
+                   
+                    </div>
+                    <div class="form-group">
+                        <p>ISBN</p>
+                        @Html.TextBoxFor(a => a.ISBN, new { @readonly = true })
+                        
+                       </div>
+                        <div class="form-group">
+                            <p>yazarı </p>
+                            @Html.TextBoxFor(a => a.Author, new { @readonly = true })
+                           
+                            </div>
+                            <div class="form-group">
+                                <p>sayısı</p>
+                                @Html.TextBoxFor(a => a.Count, new { @readonly = true })
+                               
+                                </div>
+
+
+                                <a href="/Home/Index" class="btn btn-xs"> geri dön</a>
+
+        }
+
+    </div>
+</div>
+

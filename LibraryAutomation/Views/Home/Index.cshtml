@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+@model LibraryAutomation.Models.SiteHomeVM
+
+    @Html.Partial("/Views/Partial/_Menu.cshtml", Model.BookTypes)
+
+
+
+@if (ViewData["ErrorMessage"] != null)
+{
+    <div class="alert-danger"><i class="glyphicon glyphicon-alert"></i> @ViewData["ErrorMessage"] </div>
+}
+
+    <div class="col-md-9 ">
+        <div class="row">
+         
+            @foreach (var item in Model.Books)
+            {
+
+
+                <div class="col-sm-4 col-lg-4 col-md-4">
+                    <div class="thumbnail">
+                        <img src="@item.ImagePath" alt="">
+                        <div class="caption">
+                          
+                            <h4>
+                                @*<a href="/Book/Ozellik">@item.Name</a>*@
+                                <a href="@Url.Action("Ozellik", "Book", new { id = item.Id })" >@item.Name</a>
+                            </h4>
+
+                        </div>
+                        <div class="ratings">
+                            <p class="pull-right">@item.Author</p>
+
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+
+        </div>
+    </div>
+
+

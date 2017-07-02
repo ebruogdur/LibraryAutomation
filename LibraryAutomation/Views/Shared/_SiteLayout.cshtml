@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+   
+    <title>@ViewBag.Title</title>
+
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/shop-homepage.css" rel="stylesheet" />
+    <link href="~/Content/css/datepicker.css" rel="stylesheet" />
+   
+
+</head>
+<body>
+   
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            
+            <div class="container">
+           
+               
+
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/Home/Index">Anasayfa</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+
+                        <li>
+                            <a href="/BookType/Index">Kitap Tipleri</a>
+                        </li>
+                        <li>
+                            <a href="/Student/Index">Öğrenciler</a>
+                        </li>
+                        <li>
+                            <a href="/Book/Index">Kitaplar</a>
+                        </li>
+                        <li>
+                            <a href="/User/Index">Kullanıcılar</a>
+                        </li>
+                        <li>
+                            <a href="/Book/Emanet">Emanetler</a>
+                        </li>
+
+
+                        <li>
+                            <a href="/Login/Login">Giriş yap</a>
+                        </li>
+
+                        <li>
+                            <a href="/User/SifreDegistir">şifre değiştir</a>
+                        </li>
+                        <li>
+                            <a href="/Login/Cikis">Çıkış yap</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+    
+        <!-- /.container -->
+    </nav>
+     
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            <div>
+               
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+    <div class="container">
+        <hr>
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- /.container -->
+
+   
+</body>
+</html>
+<script src="~/Script/js/jquery.js"></script>
+<script src="~/Script/js/bootstrap.min.js"></script>
+<script src="~/Script/js/bootstrap-datepicker.js"></script>
+@RenderSection("scripts", required: false)
+<script>
+    $(document).ready(function () {
+
+        $('#Date').datepicker({
+            format: "dd/mm/yyyy"
+        });
+
+    });
+
+
+</script>
+
+<script>
+    $(document).ready(function () {
+
+        $('#WDate').datepicker({
+            format: "dd/mm/yyyy"
+        });
+
+    });
+
+
+</script>
+
+
+<script>
+    $(document).ready(function () {
+
+        $('#date').datepicker({
+            format: "dd/mm/yyyy"
+        });
+
+    });
+
+
+</script>

@@ -1,0 +1,27 @@
+﻿@model List<LibraryAutomation.Models.BookType>
+
+
+<div class="col-md-3">
+
+    <div class="list-group">
+     
+        @foreach (var item in Model)
+        {
+           
+            <a href="@Url.Action("Listele", "BookType", new { id = item.ID })" class="list-group-item">@item.TypeName</a>
+            @*<a href="/BookType/Listele/" class="list-group-item">@item.TypeName</a>*@
+            
+      
+       }
+
+        
+       
+    </div>
+</div>
+
+@*<marquee direction="left" onmouseover="this.setAttribute('scrollamount', 1, 0);" onmouseout="this.start();this.setAttribute('scrollamount', 7, 0);" scrollamount="7" behavior="scroll" style="max-height:50px;border:none;background-color:transparent;color: !important;border-color: !important;"></marquee>*@
+
+@*<koddostu>
+    <script src="http://e-mete.com/js/kdsnow.js"></script>
+</koddostu>*@
+

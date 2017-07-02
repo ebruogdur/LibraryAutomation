@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="daa115b759e8442ea9f3507dd7643f4d" Name="Diagram1">
+        <EntityTypeShape EntityType="KutuphaneModel.Book" Width="1.5" PointX="3.125" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KutuphaneModel.Book_Student" Width="1.5" PointX="6.875" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KutuphaneModel.Student" Width="1.5" PointX="11" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KutuphaneModel.sysdiagram" Width="1.5" PointX="13" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="KutuphaneModel.User" Width="1.5" PointX="0.625" PointY="0.5" IsExpanded="true" />
+        <AssociationConnector Association="KutuphaneModel.FK_Book_Student_Book" ManuallyRouted="false" />
+        <AssociationConnector Association="KutuphaneModel.FK_Book_User" ManuallyRouted="false" />
+        <AssociationConnector Association="KutuphaneModel.FK_Book_Student_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="KutuphaneModel.FK_Book_Student_Book1" />
+        <AssociationConnector Association="KutuphaneModel.FK_Book_Student_Student1" />
+        <EntityTypeShape EntityType="KutuphaneModel.BookType" Width="1.5" PointX="11.125" PointY="1.25" />
+        <EntityTypeShape EntityType="KutuphaneModel.Book_BookType" Width="1.5" PointX="7.125" PointY="0.875" />
+        <AssociationConnector Association="KutuphaneModel.FK_Book_BookType_Book1" />
+        <AssociationConnector Association="KutuphaneModel.FK_Book_BookType_BookType1" />
+        <EntityTypeShape EntityType="KutuphaneModel.Role" Width="1.5" PointX="3.625" PointY="7.25" />
+        <AssociationConnector Association="KutuphaneModel.FK_User_Role" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

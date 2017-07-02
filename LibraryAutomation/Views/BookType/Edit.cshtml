@@ -1,0 +1,29 @@
+﻿
+@model LibraryAutomation.Models.BookTypeVM
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+
+<div class="panel panel-default">
+    <div class="panel panel-heading">kitap tipi güncelleme ekranı</div>
+    <div class="panel panel-body">
+        @using (Html.BeginForm())
+        {
+            <div class="form-group">
+                <div style="width:20%">
+                    <p>Kitap Türü </p>
+                    @Html.TextBoxFor(a => a.TypeName, new { @class = "form-control" })
+                    <span class="field-validation-error text-danger"
+                          data-valmsg-for="IdentityNumber"
+                          data-valmsg-replace="true">@Html.ValidationMessageFor(model => model.TypeName)</span>
+
+                    </div>
+                </div>
+
+                <input type="submit" value="guncelle">
+
+        }
+        </div>
+    </div>

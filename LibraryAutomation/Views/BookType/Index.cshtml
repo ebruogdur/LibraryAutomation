@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+@model List<LibraryAutomation.Models.BookTypeVM>
+
+<div class="panel panel-default">
+    <div class="panel panel-heading">
+     
+       
+    </div>
+    <div class="panel panel-body">
+        @if (Model.Count <= 0)
+        {
+            <div class="alert-danger"><i class="glyphicon glyphicon-alert"></i> Kayıtlı kitap tipi yoktur.</div>
+        }
+        else
+        {
+
+
+        <table class="table table-bordered">
+
+            <tr>
+                <td>Kitap Tipi</td>
+                <td>işlemler</td>
+
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.TypeName</td>
+                 
+                    <td>
+                        
+                        <a href="@Url.Action("Delete", "BookType", new { id = item.ID })" class="glyphicon glyphicon-remove">sil</a>
+                        <a href="@Url.Action("Edit", "BookType", new { id = item.ID })" class="glyphicon glyphicon-edit">güncelle</a>
+                    </td>
+                   
+                </tr>
+            }
+           
+        </table>
+        }
+
+        <br />
+       
+            <a href="/BookType/Add" class="btn btn-success">Yeni Ekle</a>
+        
+       
+    </div>
+
+</div>

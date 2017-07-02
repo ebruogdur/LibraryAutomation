@@ -1,0 +1,52 @@
+﻿@model LibraryAutomation.Models.StudentVM
+@{
+    ViewBag.Title = "Borc";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+<div class="panel panel-default">
+    <div class="panel panel-heading">borç ödeme ekranı</div>
+    <div class="panel panel-body">
+        @if (ViewData["borchata"] != null)
+        {
+            <div class="alert-danger"><i class="glyphicon glyphicon-alert"></i> @ViewData["borchata"] </div>
+        }
+
+        @if(ViewData["kalan"]!=null)
+        {
+            <div class="alert-danger"><i class="glyphicon glyphicon-alert"></i>@ViewData["kalan"] </div>
+        }
+
+        @if (ViewData["negatif"] != null)
+        {
+            <div class="alert-danger"><i class="glyphicon glyphicon-alert"></i>@ViewData["negatif"] </div>
+        }
+
+        @using (Html.BeginForm())
+        {
+
+            <div class="form-group">
+                <p>öğrencinin toplam borcu</p>
+                @Html.TextBoxFor(model => model.Debt, new {@readonly= true})
+
+            </div>
+            <div class="form-group">
+                <p>ödenecek tutar</p>
+                @Html.TextBoxFor(model => model.odenen)
+
+
+            </div>
+
+            
+            if (ViewData["borchata"] != null )
+            {
+                <input type="submit" value="öde" class="btn btn-info" disabled="disabled" />
+            }
+            else
+            {
+                <input type="submit" value="öde" class="btn btn-info" />
+            }
+        }
+
+        </div>
+    </div>
+        

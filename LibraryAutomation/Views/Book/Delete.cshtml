@@ -1,0 +1,10 @@
+﻿
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+@if (ViewData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger"><i class="glyphicon glyphicon-alert"></i> @ViewData["ErrorMessage"] </div>
+}

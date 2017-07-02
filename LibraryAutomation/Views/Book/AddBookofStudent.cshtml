@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "AddBookofStudent";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+
+@model LibraryAutomation.Models.LoadnedVM
+<div class="panel panel-default">
+    <div class="panel panel-heading">
+        Öğrenciye Kitap ekle
+    </div>
+    @using (Html.BeginForm("CAddBookofStudent", "Book"))
+    {
+           @Html.HiddenFor(x => x.BookID)
+           <div class="panel panel-body">
+
+         
+            @Html.DropDownListFor(x => x.StudentID, Model.Students)
+   
+        </div>
+       
+        <div class="panel panel-default">
+            
+            <div class="panel panel-body">
+             @if (ViewData["ErrorMessage"] != null)
+             {
+                 <div class="alert-danger"><i class="glyphicon glyphicon-alert"></i> @ViewData["ErrorMessage"] </div>
+             }
+              
+           
+                    <div class="form-group">
+                        <div style="width:20%">
+                            <p>alış tarihi</p>
+
+                            @Html.TextBoxFor(model => model.LoadnedStartDate, new { @class = "form-control datepicker ", @id = "date" })
+                            <span class="field-validation-error text-danger"
+                                  data-valmsg-for="IdentityNumber"
+                                  data-valmsg-replace="true">@Html.ValidationMessageFor(model => model.LoadnedStartDate)</span>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div style="width:20%">
+                                <p>veriş tarihi</p>
+
+                                @Html.TextBoxFor(model => model.loadnedEndDate, new { @class = "form-control datepicker ", @id = "Date" })
+                                <span class="field-validation-error text-danger"
+                                      data-valmsg-for="IdentityNumber"
+                                      data-valmsg-replace="true">@Html.ValidationMessageFor(model => model.loadnedEndDate)</span>
+
+                                </div>
+                            </div>
+
+            </div>
+
+        </div>
+        if (ViewData["ErrorMessage"] != null)
+        {
+            <input type="submit" value="Kaydet" class="btn btn-info" disabled="disabled" />
+        }
+        else
+        {
+            <input type="submit" value="Kaydet" class="btn btn-info" />
+        }
+
+    }
+   
+
+</div>
+

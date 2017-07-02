@@ -1,0 +1,72 @@
+﻿@model LibraryAutomation.Models.StudentVM
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+<div class="panel panel-default">
+    <div class="panel panel-heading">Öğrenci Güncelleme Ekranı</div>
+    <div class="panel panel-body">
+
+
+        @using (Html.BeginForm())
+        {
+            <div class="form-group">
+                <p>Öğrenci No </p>
+                @Html.TextBoxFor(a => a.IdentityNumber, new { @class = "form-control" })
+                <span class="field-validation-error text-danger"
+                      data-valmsg-for="IdentityNumber"
+                      data-valmsg-replace="true">@Html.ValidationMessageFor(model => model.IdentityNumber)</span>
+            </div>
+          
+            <div class="form-group">
+                <p>Öğrenci ad </p>
+                @Html.TextBoxFor(a => a.FirstName, new { @class = "form-control" })
+                <span class="field-validation-error text-danger"
+                      data-valmsg-for="IdentityNumber"
+                      data-valmsg-replace="true">@Html.ValidationMessageFor(model => model.FirstName)</span>
+            </div>
+           
+            <div class="form-group">
+                <p>Öğrenci soyad </p>
+                @Html.TextBoxFor(a => a.LastName, new { @class = "form-control" })
+                <span class="field-validation-error text-danger"
+                      data-valmsg-for="IdentityNumber"
+                      data-valmsg-replace="true">@Html.ValidationMessageFor(model => model.LastName)</span>
+            </div>
+            
+            <div class="form-group">
+                <p>Öğrenci telefon </p>
+                @Html.TextBoxFor(a => a.PhoneNumber, new { @class = "form-control" })
+                <span class="field-validation-error text-danger"
+                      data-valmsg-for="IdentityNumber"
+                      data-valmsg-replace="true">@Html.ValidationMessageFor(model => model.PhoneNumber)</span>
+            </div>
+           
+            <div class="form-group">
+                <p>Öğrenci email </p>
+                @Html.TextBoxFor(a => a.Email, new { @class = "form-control" })
+                <span class="field-validation-error text-danger"
+                      data-valmsg-for="IdentityNumber"
+                      data-valmsg-replace="true">@Html.ValidationMessageFor(model => model.Email)</span>
+            </div>
+
+            <div class="form-group">
+                <div style="width:20%">
+                    <p>Doğum Tarihi</p>
+
+                    @Html.TextBoxFor(model => model.BirthDate, new { @class = "form-control datepicker ", @id = "date" })
+                    <span class="field-validation-error text-danger"
+                          data-valmsg-for="IdentityNumber"
+                          data-valmsg-replace="true">@Html.ValidationMessageFor(model => model.BirthDate)</span>
+
+                    </div>
+                </div>
+
+
+            <input type="submit" value="guncelle">
+
+        }
+
+</div>
+    </div>

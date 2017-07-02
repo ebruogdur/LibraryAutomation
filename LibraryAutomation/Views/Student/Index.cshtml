@@ -1,0 +1,74 @@
+﻿
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+@model List<LibraryAutomation.Models.StudentVM>
+<div class="panel panel-default">
+    <div class="panel panel-heading">
+       Öğrenci Listesi
+    </div>
+  
+   
+    <div class="panel panel-body">
+      
+      
+           @if (Model.Count <= 0)
+           {
+            <div class="alert-danger"><i class="glyphicon glyphicon-alert"></i> Kayıtlı hiç bir öğrenci yoktur.</div>
+           }
+           else
+           {
+           
+
+
+            <table class="table table-bordered table-striped btn">
+
+                <tr>
+                    <td>Öğrenciler</td>
+                </tr>
+                <tr>
+                    <td>no</td>
+                    <td>adı</td>
+                    <td>soyadı</td>
+                    <td>email</td>
+                    <td>telefon</td>
+                    <td>doğum tarihi</td>
+                    <td>işlemler</td>
+           
+
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.IdentityNumber</td>
+                        <td>@item.FirstName</td>
+                        <td>@item.LastName</td>
+                        <td>@item.Email</td>
+                        <td>@item.PhoneNumber</td>
+                        <td>@item.BirthDate</td>
+
+                        <td>
+                           
+                            <a href="@Url.Action("Delete", "Student", new { id = item.Id })"  class="glyphicon glyphicon-remove"  >sil</a>
+                            <a href="@Url.Action("Edit", "Student", new { id = item.Id })" class="glyphicon glyphicon-edit">güncelle</a>
+                            <a href="@Url.Action("Read","Student",new { id=item.Id})" class="glyphicon glyphicon-book">okuduğu kitaplar</a>
+                            <a href="@Url.Action("Borc","Student",new { id = item.Id }) " class="glyphicon glyphicon-euro">borç</a> 
+                            
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+           }
+
+        <br />
+
+        <a href="/Student/Add" class="btn btn-success"> Yeni Ekle</a>
+    </div>
+
+</div>
+
